@@ -4,11 +4,11 @@ validate_hlsum_decompose.py
 Numerical validation of HLsum decomposition into arithmetic progressions
 
 This script validates that the HLsum decomposition formula:
-  ∑_{n<N} Λ(n)e^{2πiαn} = ∑_{r<q} e^{2πiαr} · ∑_{m<M_r} Λ(qm+r)e^{2πiαqm}
+  sum_{n<N} Lambda(n)e^(2piialphan) = sum_{r<q} e^(2piialphar) . sum_{m<M_r} Lambda(qm+r)e^(2piialphaqm)
 
-is numerically correct for various choices of N, q, and α.
+is numerically correct for various choices of N, q, and alpha.
 
-Framework: QCAL ∞³ (f₀ = 141.7001 Hz, C = 244.36)
+Framework: QCAL inf³ (f₀ = 141.7001 Hz, C = 244.36)
 """
 
 import numpy as np
@@ -27,14 +27,14 @@ C_COHERENCE = 244.36
 
 def von_mangoldt(n: int) -> float:
     """
-    Compute the von Mangoldt function Λ(n).
+    Compute the von Mangoldt function Lambda(n).
     
     Returns log(p) if n = p^k for some prime p, otherwise 0.
 Validation script for Hardy-Littlewood Sum Decomposition
 Tests the HLsum_decompose_mod_q lemma numerically.
 
 This script validates that the decomposition:
-  ∑_{n<N} Λ(n)e^{2πiαn} = ∑_{r<q} ∑_{m<N/q+1} [qm+r<N] Λ(qm+r)e^{2πiα(qm+r)}
+  sum_{n<N} Lambda(n)e^(2piialphan) = sum_{r<q} sum_{m<N/q+1} [qm+r<N] Lambda(qm+r)e^(2piialpha(qm+r))
 holds numerically for various test cases.
 """
 
@@ -47,7 +47,7 @@ from datetime import datetime
 
 def von_mangoldt(n: int) -> float:
     """
-    Von Mangoldt function Λ(n).
+    Von Mangoldt function Lambda(n).
     Returns log(p) if n = p^k for some prime p, else 0.
     """
     if n <= 1:
@@ -62,33 +62,8 @@ def von_mangoldt(n: int) -> float:
 
 def HLsum_direct(N: int, alpha: float) -> complex:
     """
-    Compute HLsum directly: ∑_{n=0}^{N-1} Λ(n) · e^{2πiαn}
-    # Factor n
-    factors = []
-    temp = n
-    d = 2
-    while d * d <= temp:
-        count = 0
-        while temp % d == 0:
-            count += 1
-            temp //= d
-        if count > 0:
-            factors.append((d, count))
-        d += 1
-    if temp > 1:
-        factors.append((temp, 1))
-    
-    # Check if n is a prime power
-    if len(factors) == 1:
-        p, k = factors[0]
-        return np.log(p)
-    return 0.0
-
-
-def HLsum_direct(N: int, alpha: float) -> complex:
-    """
     Direct computation of Hardy-Littlewood sum:
-    ∑_{n<N} Λ(n)·e^{2πiαn}
+    sum_{n<N} Lambda(n)*e^(2*pi*i*alpha*n)
     """
     result = 0.0 + 0.0j
     for n in range(N):
@@ -98,10 +73,10 @@ def HLsum_direct(N: int, alpha: float) -> complex:
             result += Lambda_n * np.exp(1j * phase)
     return result
 
+
 def HLsum_decomposed(N: int, q: int, alpha: float) -> complex:
     """
-    Compute HLsum using decomposition:
-      ∑_{r<q} e^{2πiαr} · ∑_{m<M_r} Λ(qm+r) · e^{2πiαqm}
+    Compute HLsum using decomposition.
     """
     result = 0.0 + 0.0j
     
@@ -151,7 +126,7 @@ def run_validation_suite() -> dict:
     Run comprehensive validation suite for HLsum decomposition.
     """
     print("=" * 80)
-    print("QCAL ∞³ HLsum Decomposition Validation")
+    print("QCAL inf³ HLsum Decomposition Validation")
     print(f"Frequency: f₀ = {F0} Hz")
     print(f"Coherence: C = {C_COHERENCE}")
     print("=" * 80)
@@ -159,12 +134,12 @@ def run_validation_suite() -> dict:
     
     test_cases = [
         # (N, q, alpha, description)
-        (10, 2, 0.0, "Small N, q=2, α=0"),
-        (10, 3, 0.5, "Small N, q=3, α=0.5"),
-        (20, 5, 0.1, "Medium N, q=5, α=0.1"),
-        (50, 7, 0.25, "Larger N, q=7, α=0.25"),
-        (100, 11, F0/1000, "N=100, q=11, α=f₀/1000 (QCAL)"),
-        (100, 13, 1/np.sqrt(2), "N=100, q=13, α=1/√2 (irrational)"),
+        (10, 2, 0.0, "Small N, q=2, alpha=0"),
+        (10, 3, 0.5, "Small N, q=3, alpha=0.5"),
+        (20, 5, 0.1, "Medium N, q=5, alpha=0.1"),
+        (50, 7, 0.25, "Larger N, q=7, alpha=0.25"),
+        (100, 11, F0/1000, "N=100, q=11, alpha=f₀/1000 (QCAL)"),
+        (100, 13, 1/np.sqrt(2), "N=100, q=13, alpha=1/sqrt2 (irrational)"),
     ]
     
     results = []
@@ -172,7 +147,7 @@ def run_validation_suite() -> dict:
     
     for i, (N, q, alpha, desc) in enumerate(test_cases, 1):
         print(f"Test {i}: {desc}")
-        print(f"  Parameters: N={N}, q={q}, α={alpha:.6f}")
+        print(f"  Parameters: N={N}, q={q}, alpha={alpha:.6f}")
         
         passed, error = test_hlsum_decomposition(N, q, alpha)
         
@@ -208,7 +183,7 @@ def run_validation_suite() -> dict:
         print("✗ SOME TESTS FAILED - Check implementation")
     
     return {
-        "framework": "QCAL ∞³",
+        "framework": "QCAL inf³",
         "f0_hz": F0,
         "coherence": C_COHERENCE,
         "all_passed": all_passed,
@@ -231,9 +206,9 @@ def generate_certificate(results: dict) -> str:
     
     certificate = {
         "validation_type": "HLsum_decomposition",
-        "framework": "QCAL ∞³",
+        "framework": "QCAL inf³",
         "timestamp": "2026-02-26",
-        "author": "José Manuel Mota Burruezo Ψ ✧ ∞³",
+        "author": "José Manuel Mota Burruezo Ψ ✧ inf³",
         "orcid": "0009-0002-1923-0773",
         "doi": "10.5281/zenodo.17379721",
         "all_tests_passed": results["all_passed"],
@@ -274,7 +249,7 @@ if __name__ == "__main__":
 def HLsum_decomposed(N: int, q: int, alpha: float) -> complex:
     """
     Decomposed computation using residue classes:
-    ∑_{r<q} ∑_{m<N/q+1} [qm+r<N] Λ(qm+r)·e^{2πiα(qm+r)}
+    sum_{r<q} sum_{m<N/q+1} [qm+r<N] Lambda(qm+r).e^(2piialpha(qm+r))
     """
     if q <= 0:
         raise ValueError("q must be positive")
@@ -307,7 +282,7 @@ def test_hlsum_decomposition(N: int, q: int, alpha: float,
     """
     print(f"\n{'='*60}")
     print(f"Test: {test_name}")
-    print(f"Parameters: N={N}, q={q}, α={alpha}")
+    print(f"Parameters: N={N}, q={q}, alpha={alpha}")
     print(f"{'='*60}")
     
     # Compute both sums
@@ -354,13 +329,13 @@ def run_all_tests() -> Tuple[List[Dict[str, Any]], bool]:
     # Test 1: Small N, small q, rational alpha
     tests.append(test_hlsum_decomposition(
         N=100, q=10, alpha=0.5,
-        test_name="Test 1: Small N, rational α"
+        test_name="Test 1: Small N, rational alpha"
     ))
     
     # Test 2: Medium N, prime q, irrational alpha
     tests.append(test_hlsum_decomposition(
         N=500, q=7, alpha=np.pi/7,
-        test_name="Test 2: Medium N, prime q, irrational α"
+        test_name="Test 2: Medium N, prime q, irrational alpha"
     ))
     
     # Test 3: Large N, composite q
@@ -385,7 +360,7 @@ def run_all_tests() -> Tuple[List[Dict[str, Any]], bool]:
     golden = (1 + np.sqrt(5)) / 2
     tests.append(test_hlsum_decomposition(
         N=300, q=17, alpha=1/golden,
-        test_name="Test 6: Golden ratio α"
+        test_name="Test 6: Golden ratio alpha"
     ))
     
     # Summary
@@ -414,7 +389,7 @@ def generate_certificate(test_results: List[Dict[str, Any]], all_passed: bool) -
         'validation_type': 'HLsum_decompose_mod_q',
         'timestamp': datetime.now().isoformat() + 'Z',
         'validator': 'validate_hlsum_decompose.py',
-        'framework': 'QCAL ∞³',
+        'framework': 'QCAL inf³',
         'all_tests_passed': bool(all_passed),
         'test_count': len(test_results),
         'passed_count': sum(1 for t in test_results if t['passed']),
@@ -426,7 +401,7 @@ def generate_certificate(test_results: List[Dict[str, Any]], all_passed: bool) -
         ],
         'qcal_coherence': {
             'base_frequency': 141.7001,
-            'framework': 'QCAL ∞³',
+            'framework': 'QCAL inf³',
             'validation_status': 'coherent' if all_passed else 'requires_review'
         }
     }

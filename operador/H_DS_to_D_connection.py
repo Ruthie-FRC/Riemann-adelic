@@ -1,12 +1,13 @@
 """
-CONEXIÓN EXPLÍCITA: H_DS → D(s) → Ξ(s)
+CONEXIÓN EXPLÍCITA: H_DS -> D(s) -> Xi(s)
 
 Este módulo implementa la conexión entre el operador de simetría discreta H_DS,
 la función determinante espectral D(s), y la función Xi de Riemann.
 
-Autor: José Manuel Mota Burruezo Ψ ∴ ∞³
+Autor: José Manuel Mota Burruezo Psi ∞³
 DOI: 10.5281/zenodo.17379721
 ORCID: 0009-0002-1923-0773
+"""
 #!/usr/bin/env python3
 """
 H_DS to D(s) Connection Module
@@ -15,17 +16,17 @@ This module implements the connection between the discrete symmetry
 operator H_DS and the spectral determinant D(s).
 
 Mathematical Framework:
-- H_DS: discrete symmetry operator (x ↦ 1/x)
-- H_Ψ: Hilbert-Pólya operator
+- H_DS: discrete symmetry operator (x |-> 1/x)
+- H_Psi: Hilbert-Pólya operator
 - R: resolvent operator
-- D(s): spectral determinant = det(I - sH⁻¹)
+- D(s): spectral determinant = det(I - sH-1)
 
 Key Properties:
-1. [H_Ψ, H_DS] = 0 (operators commute)
-2. Spectrum symmetric under s ↦ 1-s
+1. [H_Psi, H_DS] = 0 (operators commute)
+2. Spectrum symmetric under s |-> 1-s
 3. D(s) = D(1-s) (functional equation)
 
-Author: José Manuel Mota Burruezo Ψ ✧ ∞³
+Author: José Manuel Mota Burruezo Psi * ∞³
 Instituto de Conciencia Cuántica (ICQ)
 Date: 2025-12-26
 """
@@ -76,9 +77,9 @@ class HDSConnection:
     Conecta H_DS con la función D(s) y verifica propiedades analíticas.
     
     Esta clase implementa la construcción del determinante espectral D(s)
-    desde el operador H_Ψ_with_DS y verifica sus propiedades:
+    desde el operador H_Psi_with_DS y verifica sus propiedades:
     - D(1-s) = D(s) (ecuación funcional)
-    - D(s) entera de orden ≤ 1
+    - D(s) entera de orden <= 1
     - Ceros en Re(s) = 1/2
     
     Attributes:
@@ -89,11 +90,15 @@ class HDSConnection:
     
     def __init__(self, dimension: int = 50, precision: int = 50):
         """
-        Inicializa la conexión H_DS → D(s).
-        
+        Inicializa la conexión H_DS -> D(s).
+
         Args:
             dimension: Dimensión del operador matricial
             precision: Precisión decimal para cálculos mpmath
+        """
+        pass  # Overridden by the definition below
+
+
 from typing import Callable, Tuple, List, Optional
 from scipy.linalg import eig, det
 
@@ -144,11 +149,11 @@ class HDSConnection:
         for i in range(n):
             S[i, n - 1 - i] = 1.0
         
-        # Verificar S² = I
+        # Verificar S2 = I
         S_squared = S @ S
         identity_error = np.max(np.abs(S_squared - np.eye(n)))
         if identity_error > 1e-10:
-            print(f"⚠️  Warning: S² ≠ I, error = {identity_error:.2e}")
+            print(f"!  Warning: S2 != I, error = {identity_error:.2e}")
         
         # Aplicar simetrización
         H_with_DS = 0.5 * (H + S @ H @ S)
@@ -160,10 +165,10 @@ class HDSConnection:
         H: np.ndarray
     ) -> Tuple[Callable[[complex], complex], np.ndarray]:
         """
-        Construye D(s) = det(I - H⁻¹s) con simetría H_DS.
+        Construye D(s) = det(I - H-1s) con simetría H_DS.
         
         Args:
-            H: Matriz del operador H_Ψ
+            H: Matriz del operador H_Psi
             
         Returns:
             Tupla (D_func, eigenvalues):
@@ -176,7 +181,7 @@ class HDSConnection:
         # 2. Verificar propiedades
         hermitian_ok = self._check_hermitian(H_sym)
         if not hermitian_ok:
-            print("⚠️  Warning: H_sym is not Hermitian within tolerance")
+            print("!  Warning: H_sym is not Hermitian within tolerance")
         
         # 3. Calcular autovalores (deben ser reales si H es Hermitiano)
         eigenvalues = np.linalg.eigvalsh(H_sym)
@@ -184,7 +189,7 @@ class HDSConnection:
         # 4. Construir determinante espectral
         def D(s: complex) -> complex:
             """
-            D(s) = ∏ (1 - s/(1/2 + iγ)) donde λ = γ² + 1/4
+            D(s) = ∏ (1 - s/(1/2 + iγ)) donde λ = γ2 + 1/4
             
             Cada autovalor λ > 1/4 da dos ceros conjugados en 1/2 ± iγ.
             """
@@ -195,7 +200,7 @@ class HDSConnection:
                 if λ < 0.25:  # Descartar valores no físicos
                     continue
                     
-                # Calcular γ desde λ = γ² + 1/4
+                # Calcular γ desde λ = γ2 + 1/4
                 γ = mp.sqrt(mp.mpf(λ) - mp.mpf(0.25))
                 
                 # Dos ceros conjugados: 1/2 ± iγ
@@ -223,7 +228,7 @@ class HDSConnection:
         Verifica:
         1. D(s) satisface ecuación funcional D(1-s) = D(s)
         2. D(s) es entera (no singularidades finitas)
-        3. Orden ≤ 1 (crecimiento controlado)
+        3. Orden <= 1 (crecimiento controlado)
         
         Args:
             D_func: Función D(s) a verificar
@@ -262,7 +267,7 @@ class HDSConnection:
             'test_points': len(test_points)
         }
         
-        # Test 2: Crecimiento (orden ≤ 1)
+        # Test 2: Crecimiento (orden <= 1)
         growth_points = [10.0, 20.0, 50.0, 100.0]
         growth_data = []
         
@@ -271,7 +276,7 @@ class HDSConnection:
             D_val = D_func(s)
             log_abs_D = np.log(abs(D_val)) if abs(D_val) > 1e-100 else -np.inf
             
-            # Para orden ≤ 1: log|D(s)| ≤ A|s| + B
+            # Para orden <= 1: log|D(s)| <= A|s| + B
             # Verificar que log|D| / |s| está acotado
             normalized_growth = log_abs_D / abs(s) if abs(s) > 0 else 0
             growth_data.append(normalized_growth)
@@ -316,9 +321,9 @@ class HDSConnection:
             print("📊 VERIFICACIÓN DE PROPIEDADES D(s):")
             print("=" * 60)
             print(f"✓ Ecuación funcional: {'✅ PASS' if functional_ok else '❌ FAIL'}")
-            print(f"✓ Orden ≤ 1: {'✅ PASS' if growth_ok else '❌ FAIL'}")
+            print(f"✓ Orden <= 1: {'✅ PASS' if growth_ok else '❌ FAIL'}")
             print(f"✓ Simetría realidad: {'✅ PASS' if symmetry_ok else '❌ FAIL'}")
-            print(f"\n{'✅ TODAS LAS PROPIEDADES VERIFICADAS' if all_ok else '⚠️  ALGUNAS PROPIEDADES FALLARON'}")
+            print(f"\n{'✅ TODAS LAS PROPIEDADES VERIFICADAS' if all_ok else '!  ALGUNAS PROPIEDADES FALLARON'}")
             print("=" * 60)
         
         return all_ok, results
@@ -330,7 +335,7 @@ class HDSConnection:
         max_zeros: int = 10
     ) -> List[Tuple[float, complex, complex, float]]:
         """
-        Compara D(s) con Ξ(s) en ceros conocidos.
+        Compara D(s) con Xi(s) en ceros conocidos.
         
         Args:
             D_func: Función D(s) construida
@@ -348,7 +353,7 @@ class HDSConnection:
             # Evaluar D(s)
             D_val = D_func(complex(s))
             
-            # Evaluar Ξ(s) usando mpmath
+            # Evaluar Xi(s) usando mpmath
             Xi_val = self._compute_Xi(s)
             
             # Diferencia relativa
@@ -363,17 +368,17 @@ class HDSConnection:
     
     def _compute_Xi(self, s: complex) -> complex:
         """
-        Calcula Ξ(s) = 1/2 s(s-1) π^(-s/2) Γ(s/2) ζ(s)
+        Calcula Xi(s) = 1/2 s(s-1) π^(-s/2) Γ(s/2) ζ(s)
         
         Args:
             s: Punto de evaluación
             
         Returns:
-            Valor de Ξ(s)
+            Valor de Xi(s)
         """
         s_mp = mp.mpc(s)
         
-        # Ξ(s) = 1/2 s(s-1) π^(-s/2) Γ(s/2) ζ(s)
+        # Xi(s) = 1/2 s(s-1) π^(-s/2) Γ(s/2) ζ(s)
         factor1 = mp.mpf(0.5) * s_mp * (s_mp - 1)
         factor2 = mp.pi ** (-s_mp / 2)
         factor3 = mp.gamma(s_mp / 2)
@@ -401,10 +406,10 @@ class HDSConnection:
 
 def demonstrate_hds_connection():
     """
-    Demostración de la conexión H_DS → D(s) → Ξ(s).
+    Demostración de la conexión H_DS -> D(s) -> Xi(s).
     """
     print("=" * 70)
-    print("🔗 CONEXIÓN H_DS → D(s) → Ξ(s)")
+    print("🔗 CONEXIÓN H_DS -> D(s) -> Xi(s)")
     print("=" * 70)
     print()
     
@@ -418,7 +423,7 @@ def demonstrate_hds_connection():
     n = conn.dimension
     H = np.zeros((n, n))
     for i in range(n):
-        H[i, i] = (i + 1)**2  # Autovalores λ = n²
+        H[i, i] = (i + 1)**2  # Autovalores λ = n2
         
     # Hacerlo Hermitiano y añadir estructura
     H = (H + H.T.conj()) / 2
@@ -435,7 +440,7 @@ def demonstrate_hds_connection():
     print()
     
     print("=" * 70)
-    print(f"{'✅ DEMOSTRACIÓN EXITOSA' if all_ok else '⚠️  VERIFICACIÓN PARCIAL'}")
+    print(f"{'✅ DEMOSTRACIÓN EXITOSA' if all_ok else '!  VERIFICACIÓN PARCIAL'}")
     print("=" * 70)
     
     return conn, D_func, results
@@ -469,10 +474,10 @@ if __name__ == "__main__":
     def verify_commutator(self, H_psi: np.ndarray, H_DS: np.ndarray, 
                          tolerance: float = 1e-10) -> bool:
         """
-        Verify that [H_Ψ, H_DS] = 0.
+        Verify that [H_Psi, H_DS] = 0.
         
         Args:
-            H_psi: H_Ψ operator matrix
+            H_psi: H_Psi operator matrix
             H_DS: H_DS operator matrix
             tolerance: Numerical tolerance
             
@@ -482,13 +487,13 @@ if __name__ == "__main__":
         commutator = H_psi @ H_DS - H_DS @ H_psi
         comm_norm = np.linalg.norm(commutator, 'fro')
         
-        print(f"  Commutator norm: ‖[H_Ψ, H_DS]‖ = {comm_norm:.2e}")
+        print(f"  Commutator norm: ‖[H_Psi, H_DS]‖ = {comm_norm:.2e}")
         
         if comm_norm < tolerance:
             print(f"  ✅ Operators commute (within tolerance {tolerance:.0e})")
             return True
         else:
-            print(f"  ⚠️  Operators do not commute (norm {comm_norm:.2e})")
+            print(f"  !  Operators do not commute (norm {comm_norm:.2e})")
             return False
     
     def compute_spectrum(self, H: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
@@ -517,7 +522,7 @@ if __name__ == "__main__":
         Verify spectrum is symmetric under λ ↦ 1-λ.
         
         Args:
-            eigenvalues: Spectrum of H_Ψ
+            eigenvalues: Spectrum of H_Psi
             tolerance: Numerical tolerance
             
         Returns:
@@ -631,10 +636,10 @@ if __name__ == "__main__":
     
     def run_complete_validation(self, H_psi_matrix: np.ndarray) -> dict:
         """
-        Run complete validation of H_DS → D(s) connection.
+        Run complete validation of H_DS -> D(s) connection.
         
         Args:
-            H_psi_matrix: H_Ψ operator matrix
+            H_psi_matrix: H_Psi operator matrix
             
         Returns:
             Dictionary with validation results
@@ -651,12 +656,12 @@ if __name__ == "__main__":
         results['H_DS'] = H_DS
         
         # Verify commutation
-        print("\n2. Verifying [H_Ψ, H_DS] = 0...")
+        print("\n2. Verifying [H_Psi, H_DS] = 0...")
         commutes = self.verify_commutator(H_psi_matrix, H_DS)
         results['commutes'] = commutes
         
         # Compute spectrum
-        print("\n3. Computing spectrum of H_Ψ...")
+        print("\n3. Computing spectrum of H_Psi...")
         eigenvalues, eigenvectors = self.compute_spectrum(H_psi_matrix)
         results['eigenvalues'] = eigenvalues
         results['eigenvectors'] = eigenvectors
@@ -702,7 +707,7 @@ if __name__ == "__main__":
         all_pass = commutes and symmetric and satisfies_FE
         
         checks = [
-            ("H_Ψ and H_DS commute", commutes),
+            ("H_Psi and H_DS commute", commutes),
             ("Spectrum is symmetric", symmetric),
             ("Functional equation holds", satisfies_FE),
         ]
@@ -714,9 +719,9 @@ if __name__ == "__main__":
         print("\n" + "=" * 60)
         if all_pass:
             print("✅ ALL VALIDATIONS PASSED")
-            print("   H_DS → D(s) connection verified ✓")
+            print("   H_DS -> D(s) connection verified ✓")
         else:
-            print("⚠️  SOME VALIDATIONS FAILED")
+            print("!  SOME VALIDATIONS FAILED")
             print("   Further investigation needed")
         print("=" * 60)
         
@@ -726,6 +731,6 @@ if __name__ == "__main__":
 
 # Example usage and testing
 if __name__ == "__main__":
-    # This would typically be called with an H_Ψ matrix from operador_H.py
+    # This would typically be called with an H_Psi matrix from operador_H.py
     print("H_DS to D(s) connection module loaded.")
     print("Use HDSConnection class to validate the connection.")

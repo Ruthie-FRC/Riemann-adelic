@@ -428,7 +428,6 @@ QCAL ∞³ Framework Integration:
                         help=f'Base frequency in Hz (default: {QCAL_BASE_FREQUENCY})')
     parser.add_argument('--timestamp', action='store_true',
                         help='Include timestamp in JSON output filename')
-                        help='Include ISO timestamp in output and certificate')
     parser.add_argument('--quote', action='store_true',
                         help='Include philosophical quote in certificate')
     

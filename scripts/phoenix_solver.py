@@ -421,7 +421,6 @@ class PhoenixSolver:
 
 def main():
     """Main entry point."""
-    """
     parser = argparse.ArgumentParser(
         description='Phoenix Solver - Automated Lean4 sorry resolution',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -457,6 +456,8 @@ def main():
 
 
 if __name__ == '__main__':
+    main()
+
 
 @dataclass
 class QCALConstants:
@@ -1239,7 +1240,6 @@ class PhoenixSolver:
             return False
     
     def run_iteration(self, focus_file: Optional[str] = None, max_attempts: int = 5) -> Dict:
-        """
         """
         Ejecuta una iteración completa del Phoenix Solver.
         
