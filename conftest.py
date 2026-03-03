@@ -29,6 +29,12 @@ project_root = os.path.dirname(os.path.abspath(__file__))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
+# Add scripts subdirectories so tests can import validation/demo modules
+for scripts_subdir in ['scripts/validation', 'scripts/demos', 'scripts']:
+    scripts_path = os.path.join(project_root, scripts_subdir)
+    if os.path.isdir(scripts_path) and scripts_path not in sys.path:
+        sys.path.insert(0, scripts_path)
+
 from utils.test_logger import QCALTestLogger
 
 
