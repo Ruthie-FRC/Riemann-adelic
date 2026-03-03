@@ -20,18 +20,23 @@ The operator is constructed using adelic analysis — treating the integers thro
 
 ```
 ├── core/                  # Core Python module (spectral oscillator, resonator)
+├── lib/                   # Standalone library modules (operator implementations, etc.)
 ├── utils/                 # Mathematical utilities (adelic determinant, etc.)
 ├── src/                   # Additional source modules
 ├── operators/             # Operator implementations
+├── operador/              # Adelic Hilbert space operator (H_Ψ)
+├── spectral_RH/           # Spectral analysis components
 ├── formalization/         # Lean 4 formal proof attempts
-│   └── lean/              # Lean source files
-├── RH_final_v6/           # Lean 4 proof framework (latest version)
+│   └── lean/              # Lean source files and proof framework
 ├── tests/                 # Test suite (pytest)
 ├── scripts/               # Standalone scripts
 │   ├── validation/        # Numerical validation scripts
-│   └── demos/             # Demonstration scripts
+│   ├── demos/             # Demonstration scripts
+│   └── examples/          # Usage examples
 ├── zeros/                 # Riemann zero data (from Odlyzko's tables)
 ├── data/                  # Computed results and certificates
+├── paper/                 # LaTeX manuscript source
+├── notebooks/             # Jupyter notebooks
 ├── docs/                  # Documentation
 ├── validate_v5_coronacion.py  # Main validation entry point
 └── requirements.txt       # Python dependencies
