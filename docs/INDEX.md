@@ -26,10 +26,10 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 | [docs/roadmap/ROADMAP.md](roadmap/ROADMAP.md) | Development milestones and proof roadmap |
 | [docs/formalizacion/blueprint.md](formalizacion/blueprint.md) | Lean 4 formalization blueprint |
 | [IMPLEMENTATION_SUMMARY.md](../IMPLEMENTATION_SUMMARY.md) | Consolidated implementation overview |
-| [AXIOMAS_MINIMOS_V5.2.md](../AXIOMAS_MINIMOS_V5.2.md) | Minimal axiom system (V5.2) |
-| [ADELIC_ARITMOLOGY.md](../ADELIC_ARITMOLOGY.md) | Adelic arithmetic foundations |
-| [FIRST_PRINCIPLES_DERIVATION.md](../FIRST_PRINCIPLES_DERIVATION.md) | Derivation from first principles |
-| [GEOMETRIC_UNIFICATION.md](../GEOMETRIC_UNIFICATION.md) | Geometric unification framework |
+| [AXIOMAS_MINIMOS_V5.2.md](archive/AXIOMAS_MINIMOS_V5.2.md) | Minimal axiom system (V5.2) |
+| [ADELIC_ARITMOLOGY.md](archive/ADELIC_ARITMOLOGY.md) | Adelic arithmetic foundations |
+| [FIRST_PRINCIPLES_DERIVATION.md](archive/FIRST_PRINCIPLES_DERIVATION.md) | Derivation from first principles |
+| [GEOMETRIC_UNIFICATION.md](archive/GEOMETRIC_UNIFICATION.md) | Geometric unification framework |
 
 ---
 
@@ -38,12 +38,12 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 | File | Description |
 |------|-------------|
 | [docs/operators/hilbert_polya_final.md](operators/hilbert_polya_final.md) | Hilbert–Pólya operator analysis |
-| [BERRY_KEATING_SELF_ADJOINTNESS_README.md](../BERRY_KEATING_SELF_ADJOINTNESS_README.md) | Berry–Keating operator H_Ψ self-adjointness |
-| [H_PSI_SELF_ADJOINT_DOCUMENTATION.md](../H_PSI_SELF_ADJOINT_DOCUMENTATION.md) | H_Ψ self-adjoint formalization |
-| [SPECTRAL_FRAMEWORK_README.md](../SPECTRAL_FRAMEWORK_README.md) | Spectral framework overview |
-| [RIGOROUS_UNBOUNDED_OPERATOR_README.md](../RIGOROUS_UNBOUNDED_OPERATOR_README.md) | Unbounded operator theory |
-| [TRACE_CLASS_COMPLETE_README.md](../TRACE_CLASS_COMPLETE_README.md) | Trace class operator theory |
-| [FREDHOLM_DETERMINANT_CONSTRUCTOR_README.md](../FREDHOLM_DETERMINANT_CONSTRUCTOR_README.md) | Fredholm determinant construction |
+| [BERRY_KEATING_SELF_ADJOINTNESS_README.md](archive/BERRY_KEATING_SELF_ADJOINTNESS_README.md) | Berry–Keating operator H_Ψ self-adjointness |
+| [H_PSI_SELF_ADJOINT_DOCUMENTATION.md](archive/H_PSI_SELF_ADJOINT_DOCUMENTATION.md) | H_Ψ self-adjoint formalization |
+| [SPECTRAL_FRAMEWORK_README.md](archive/SPECTRAL_FRAMEWORK_README.md) | Spectral framework overview |
+| [RIGOROUS_UNBOUNDED_OPERATOR_README.md](archive/RIGOROUS_UNBOUNDED_OPERATOR_README.md) | Unbounded operator theory |
+| [TRACE_CLASS_COMPLETE_README.md](archive/TRACE_CLASS_COMPLETE_README.md) | Trace class operator theory |
+| [FREDHOLM_DETERMINANT_CONSTRUCTOR_README.md](archive/FREDHOLM_DETERMINANT_CONSTRUCTOR_README.md) | Fredholm determinant construction |
 
 ---
 
@@ -51,13 +51,13 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 
 | File | Description |
 |------|-------------|
-| [PALEY_WIENER_D_INDEPENDENT_README.md](../PALEY_WIENER_D_INDEPENDENT_README.md) | Paley–Wiener uniqueness (D independent of assumptions) |
-| [POSITIVE_KERNEL_THEOREM_README.md](../POSITIVE_KERNEL_THEOREM_README.md) | Positive kernel theorem |
-| [COERCIVITY_INEQUALITY_README.md](../COERCIVITY_INEQUALITY_README.md) | Coercivity inequality |
-| [NELSON_SELF_ADJOINTNESS_README.md](../NELSON_SELF_ADJOINTNESS_README.md) | Nelson's self-adjointness criterion |
-| [SPECTRAL_BIJECTION_UNIQUENESS_README.md](../SPECTRAL_BIJECTION_UNIQUENESS_README.md) | Spectral bijection uniqueness |
-| [UNCONDITIONAL_SPECTRAL_EQUIVALENCE_README.md](../UNCONDITIONAL_SPECTRAL_EQUIVALENCE_README.md) | Unconditional spectral equivalence |
-| [TAUBERIAN_README.md](../TAUBERIAN_README.md) | Tauberian theorem application |
+| [PALEY_WIENER_D_INDEPENDENT_README.md](archive/PALEY_WIENER_D_INDEPENDENT_README.md) | Paley–Wiener uniqueness (D independent of assumptions) |
+| [POSITIVE_KERNEL_THEOREM_README.md](archive/POSITIVE_KERNEL_THEOREM_README.md) | Positive kernel theorem |
+| [COERCIVITY_INEQUALITY_README.md](archive/COERCIVITY_INEQUALITY_README.md) | Coercivity inequality |
+| [NELSON_SELF_ADJOINTNESS_README.md](archive/NELSON_SELF_ADJOINTNESS_README.md) | Nelson's self-adjointness criterion |
+| [SPECTRAL_BIJECTION_UNIQUENESS_README.md](archive/SPECTRAL_BIJECTION_UNIQUENESS_README.md) | Spectral bijection uniqueness |
+| [UNCONDITIONAL_SPECTRAL_EQUIVALENCE_README.md](archive/UNCONDITIONAL_SPECTRAL_EQUIVALENCE_README.md) | Unconditional spectral equivalence |
+| [TAUBERIAN_README.md](archive/TAUBERIAN_README.md) | Tauberian theorem application |
 
 ---
 
@@ -67,11 +67,11 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 |------|-------------|
 | [REPRODUCIBILITY.md](../REPRODUCIBILITY.md) | Reproducibility guidelines |
 | [QUICKSTART.md](../QUICKSTART.md) | Quick-start validation guide |
-| [VALIDATION_REPORT.md](../VALIDATION_REPORT.md) | Latest validation report |
-| [RIEMANN_HYPOTHESIS_FINAL_CHECKLIST.md](../RIEMANN_HYPOTHESIS_FINAL_CHECKLIST.md) | Verification checklist |
-| [DATA_SOURCES.md](../DATA_SOURCES.md) | Sources for Riemann zero data |
-| [MACHINE_CHECK_VERIFICATION_README.md](../MACHINE_CHECK_VERIFICATION_README.md) | Machine-checkable verification |
-| [REAL_DATA_VALIDATION_SUMMARY.md](../REAL_DATA_VALIDATION_SUMMARY.md) | Real zero data validation summary |
+| [VALIDATION_REPORT.md](archive/VALIDATION_REPORT.md) | Latest validation report |
+| [RIEMANN_HYPOTHESIS_FINAL_CHECKLIST.md](archive/RIEMANN_HYPOTHESIS_FINAL_CHECKLIST.md) | Verification checklist |
+| [DATA_SOURCES.md](archive/DATA_SOURCES.md) | Sources for Riemann zero data |
+| [MACHINE_CHECK_VERIFICATION_README.md](archive/MACHINE_CHECK_VERIFICATION_README.md) | Machine-checkable verification |
+| [REAL_DATA_VALIDATION_SUMMARY.md](archive/REAL_DATA_VALIDATION_SUMMARY.md) | Real zero data validation summary |
 
 ---
 
@@ -79,11 +79,11 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 
 | File | Description |
 |------|-------------|
-| [LEAN_SETUP_GUIDE.md](../LEAN_SETUP_GUIDE.md) | How to set up Lean 4 and build the project |
-| [LEAN4_CERTIFICATION_REPORT.md](../LEAN4_CERTIFICATION_REPORT.md) | Certification report for Lean 4 proofs |
-| [FORMALIZATION_STATUS.md](../FORMALIZATION_STATUS.md) | Current formalization status |
-| [SORRY_MAP.md](../SORRY_MAP.md) | Map of remaining `sorry` placeholders |
-| [LEAN_QUICKREF.md](../LEAN_QUICKREF.md) | Quick reference for Lean 4 usage |
+| [LEAN_SETUP_GUIDE.md](archive/LEAN_SETUP_GUIDE.md) | How to set up Lean 4 and build the project |
+| [LEAN4_CERTIFICATION_REPORT.md](archive/LEAN4_CERTIFICATION_REPORT.md) | Certification report for Lean 4 proofs |
+| [FORMALIZATION_STATUS.md](archive/FORMALIZATION_STATUS.md) | Current formalization status |
+| [SORRY_MAP.md](archive/SORRY_MAP.md) | Map of remaining `sorry` placeholders |
+| [LEAN_QUICKREF.md](archive/LEAN_QUICKREF.md) | Quick reference for Lean 4 usage |
 
 ---
 
@@ -91,11 +91,11 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 
 | File | Description |
 |------|-------------|
-| [GOLDBACH_ABC_CIRCLE_CLOSURE.md](../GOLDBACH_ABC_CIRCLE_CLOSURE.md) | Goldbach and ABC conjectures via RH |
-| [GRH_GENERALIZATION.md](../GRH_GENERALIZATION.md) | Generalized Riemann Hypothesis (GRH) extension |
-| [QCAL_UNIFIED_THEORY.md](../QCAL_UNIFIED_THEORY.md) | QCAL unified theory framework |
-| [QUANTUM_COHERENT_FIELD_THEORY.md](../QUANTUM_COHERENT_FIELD_THEORY.md) | Quantum Coherent Field Theory (QCFT) |
-| [FIVE_FRAMEWORKS_UNIFIED.md](../FIVE_FRAMEWORKS_UNIFIED.md) | Five unified mathematical frameworks |
+| [GOLDBACH_ABC_CIRCLE_CLOSURE.md](archive/GOLDBACH_ABC_CIRCLE_CLOSURE.md) | Goldbach and ABC conjectures via RH |
+| [GRH_GENERALIZATION.md](archive/GRH_GENERALIZATION.md) | Generalized Riemann Hypothesis (GRH) extension |
+| [QCAL_UNIFIED_THEORY.md](archive/QCAL_UNIFIED_THEORY.md) | QCAL unified theory framework |
+| [QUANTUM_COHERENT_FIELD_THEORY.md](archive/QUANTUM_COHERENT_FIELD_THEORY.md) | Quantum Coherent Field Theory (QCFT) |
+| [FIVE_FRAMEWORKS_UNIFIED.md](archive/FIVE_FRAMEWORKS_UNIFIED.md) | Five unified mathematical frameworks |
 
 ---
 
@@ -103,11 +103,11 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 
 | File | Description |
 |------|-------------|
-| [WORKFLOWS_GUIDE.md](../WORKFLOWS_GUIDE.md) | CI/CD workflow documentation |
-| [CI_CD_REPRODUCIBILITY_SUMMARY.md](../CI_CD_REPRODUCIBILITY_SUMMARY.md) | CI/CD reproducibility details |
-| [ENV_LOCK_GUIDE.md](../ENV_LOCK_GUIDE.md) | Environment lock file guide |
-| [SYSTEM_DEPENDENCIES.md](../SYSTEM_DEPENDENCIES.md) | System dependency documentation |
-| [PACKAGE_LICENSES.md](../PACKAGE_LICENSES.md) | Third-party package licenses |
+| [WORKFLOWS_GUIDE.md](archive/WORKFLOWS_GUIDE.md) | CI/CD workflow documentation |
+| [CI_CD_REPRODUCIBILITY_SUMMARY.md](archive/CI_CD_REPRODUCIBILITY_SUMMARY.md) | CI/CD reproducibility details |
+| [ENV_LOCK_GUIDE.md](archive/ENV_LOCK_GUIDE.md) | Environment lock file guide |
+| [SYSTEM_DEPENDENCIES.md](archive/SYSTEM_DEPENDENCIES.md) | System dependency documentation |
+| [PACKAGE_LICENSES.md](archive/PACKAGE_LICENSES.md) | Third-party package licenses |
 
 ---
 
@@ -121,4 +121,4 @@ This index organizes the documentation for the Riemann–Adelic proof framework.
 
 ---
 
-> **Note:** This repository contains hundreds of additional markdown files in the root directory. They record the incremental development history (implementation summaries, task completion reports, quickstart guides, etc.) and are preserved for traceability. The files listed above are the primary reference documents for understanding and extending the proof. Historical work records are located directly in the repository root.
+> **Note:** Historical development records — implementation summaries, task completion reports, quickstart guides, etc. — have been consolidated into [`docs/archive/`](archive/). The files listed above are the primary reference documents for understanding and extending the proof.
