@@ -722,11 +722,11 @@ def demonstrate_example_sequence():
 if __name__ == "__main__":
     # Run demonstration
     demonstrate_example_sequence()
-    Maps genomic codons to Riemann zeros and constructs quantum wave functions.
-    
-    This class implements the QCAL genomic mapping framework, connecting
-    DNA/RNA sequences to the spectral properties of the Riemann zeta function.
-    """
+#     Maps genomic codons to Riemann zeros and constructs quantum wave functions.
+#     
+#     This class implements the QCAL genomic mapping framework, connecting
+#     DNA/RNA sequences to the spectral properties of the Riemann zeta function.
+#     """
     
     def __init__(self, precision: int = 25, zeros_file: Optional[str] = None):
         """

@@ -265,6 +265,7 @@ def print_system_details(n_zeros: int = 30):
 
 def main():
     """Main demonstration function."""
+    """
     print("\n🌌 UNIFIED HIERARCHY DEMONSTRATION")
     print("=" * 80)
     print()

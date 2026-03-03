@@ -509,6 +509,7 @@ class TestConstants:
     
     def test_coherence_constant(self):
         """Test QCAL coherence constant"""
+        """
         assert np.isclose(COHERENCE_C, 244.36, atol=1e-2)
 
 

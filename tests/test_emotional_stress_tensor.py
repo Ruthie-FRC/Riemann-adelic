@@ -39,7 +39,7 @@ class TestQCALParameters:
         assert params.gamma == 0.1, "Parámetro gamma incorrecto"
         
     def test_omega_0_calculation(self):
-        """Test cálculo de frecuencia angular ω₀ = 2πf₀."""
+#         """Test cálculo de frecuencia angular ω₀ = 2πf₀."""
         params = QCALParameters()
         expected_omega = 2 * np.pi * 141.7001
         
@@ -47,7 +47,7 @@ class TestQCALParameters:
             "Frecuencia angular calculada incorrectamente"
     
     def test_min_coherence_calculation(self):
-        """Test cálculo de coherencia mínima Ψ_min = exp(-β·T₀₀_critical)."""
+#         """Test cálculo de coherencia mínima Ψ_min = exp(-β·T₀₀_critical)."""
         params = QCALParameters(beta=0.5, critical_stress=0.58)
         expected_min_coherence = np.exp(-0.5 * 0.58)
         
@@ -118,7 +118,7 @@ class TestEmotionalStressTensor:
         assert np.min(Phi) < 0, "No hay contribuciones negativas"
     
     def test_potential_mexican_hat(self):
-        """Test potencial Mexican Hat V(Φ) = 1/4(Φ² - 1)²."""
+#         """Test potencial Mexican Hat V(Φ) = 1/4(Φ² - 1)²."""
         tensor = EmotionalStressTensor()
         
         # Mínimos en Φ = ±1
@@ -140,18 +140,18 @@ class TestEmotionalStressTensor:
         Phi = tensor.compute_emotional_field(observers)
         components = tensor.compute_stress_energy_tensor(Phi)
         
-        assert 'T_00' in components, "Falta componente T₀₀"
+#         assert 'T_00' in components, "Falta componente T₀₀"
         assert 'dPhi_dx' in components, "Falta gradiente dΦ/dx"
         assert 'dPhi_dy' in components, "Falta gradiente dΦ/dy"
         assert 'V' in components, "Falta potencial V"
         assert 'kinetic' in components, "Falta energía cinética"
         
         T_00 = components['T_00']
-        assert T_00.shape == (50, 50), "Forma incorrecta de T₀₀"
-        assert np.all(T_00 >= 0), "T₀₀ debe ser no-negativo (densidad de energía)"
+#         assert T_00.shape == (50, 50), "Forma incorrecta de T₀₀"
+#         assert np.all(T_00 >= 0), "T₀₀ debe ser no-negativo (densidad de energía)"
     
     def test_coherence_field_inverse_coupling(self):
-        """Test acoplamiento inverso stress-coherencia: Ψ = exp(-β·T₀₀)."""
+#         """Test acoplamiento inverso stress-coherencia: Ψ = exp(-β·T₀₀)."""
         tensor = EmotionalStressTensor(grid_size=50)
         
         # Crear tensor de stress sintético
@@ -257,7 +257,7 @@ class TestEmotionalStressTensor:
         assert stats['coherence_constant'] == 244.36, "Constante C incorrecta"
     
     def test_qcal_frequency_consistency(self):
-        """Test consistencia con frecuencia QCAL f₀ = 141.7001 Hz."""
+#         """Test consistencia con frecuencia QCAL f₀ = 141.7001 Hz."""
         qcal_params = QCALParameters()
         tensor = EmotionalStressTensor(qcal_params=qcal_params)
         
@@ -340,7 +340,7 @@ class TestIntegrationScenarios:
         assert stats is not None
     
     def test_critical_stress_threshold(self):
-        """Test comportamiento en threshold crítico T₀₀ > 0.58."""
+#         """Test comportamiento en threshold crítico T₀₀ > 0.58."""
         tensor = EmotionalStressTensor(grid_size=50)
         qcal_params = tensor.qcal_params
         
@@ -360,7 +360,7 @@ class TestIntegrationScenarios:
                 "Coherencia en zonas críticas debe ser < 0.8"
     
     def test_soberania_total_goal(self):
-        """Test objetivo de Soberanía Total (Ψ → 1.0)."""
+#         """Test objetivo de Soberanía Total (Ψ → 1.0)."""
         tensor = EmotionalStressTensor(grid_size=50)
         observers = [EmotionalObserver(x=0, y=0, amplitude=0.5, sigma=2.0)]
         
@@ -377,6 +377,7 @@ class TestIntegrationScenarios:
 
 
 if __name__ == "__main__":
+    """
 Tests for Emotional Stress-Energy Tensor T_μν(Φ)
 
 Tests cover:

@@ -29,6 +29,7 @@ from src.biological.cytoplasmic_flow_model import (
     SpectralMode,
     compute_reynolds_number,
     is_cytoplasmic_regime
+)
 from typing import Tuple
 import sys
 from pathlib import Path
@@ -45,7 +46,8 @@ from biological.cytoplasmic_flow_model import (
     RHO_CYTOPLASM,
     NU_CYTOPLASM,
     CELL_LENGTH_SCALE,
-    FLOW_VELOCITY,
+    FLOW_VELOCITY
+)
 from utils.cytoplasmic_flow_model import (
     CytoplasmicFlowModel,
     FlowParameters,
@@ -570,9 +572,10 @@ class TestNumericalAccuracy:
         assert np.isfinite(result['convection_time_scale'])
 
 
-if __name__ == '__main__':
-    """Run tests with pytest."""
-    pytest.main([__file__, '-v', '--tb=short'])
+class TestFlowParameters2:
+    """Tests for cytoplasmic flow parameters."""
+
+    def test_default_cytoplasmic_parameters(self):
         """Test default cytoplasmic parameters."""
         params = FlowParameters()
         

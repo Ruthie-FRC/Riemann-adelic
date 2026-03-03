@@ -851,6 +851,7 @@ def demonstrate_qcal_group():
 
 if __name__ == "__main__":
     qcal_structure = demonstrate_qcal_group()
+"""
 QCAL Group Structure - 𝒢_QCAL Vibrational Resonance
 
 La estructura grupal en QCAL no es sólo álgebra:

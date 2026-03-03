@@ -12,6 +12,7 @@ Date: 18 Enero 2026
 import sys
 import json
 import time
+"""
 Phoenix Monitoring Dashboard
 
 Tracks Phoenix Solver progress over time and displays metrics.

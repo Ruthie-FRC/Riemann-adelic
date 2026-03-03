@@ -404,6 +404,7 @@ def small_zeros(zeta_system):
 @pytest.fixture
 def hierarchy():
     """Fixture providing initialized hierarchy."""
+    """
     return UnifiedHierarchy(precision=50, n_zeros=20)
 
 

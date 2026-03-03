@@ -256,6 +256,7 @@ def run_demo(quick=False, precision=15, n_basis=None):
 
 def main():
     """Main entry point"""
+    """
     parser = argparse.ArgumentParser(
         description='Thermal Kernel Operator Demonstration for Riemann Hypothesis',
         formatter_class=argparse.RawDescriptionHelpFormatter
@@ -287,7 +288,6 @@ Demo script for the Thermal Kernel Spectral Operator implementation.
 
 This demonstrates the analytical Gaussian kernel approach without oscillatory integration.
 Shows how to build the heat operator R_h and map it to the Hamiltonian H.
-"""
 
 import numpy as np
 from thermal_kernel_spectral import (
@@ -296,6 +296,7 @@ from thermal_kernel_spectral import (
 )
 
 
+    """
 def demo_gaussian_kernel():
     """Demonstrate the analytical Gaussian kernel properties."""
     print("=" * 70)
@@ -461,6 +462,8 @@ def demo_validation():
     print()
 
 
+    """
+    """
 def main():
     """Run all demonstrations."""
     print()

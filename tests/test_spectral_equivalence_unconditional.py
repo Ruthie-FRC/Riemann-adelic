@@ -289,6 +289,7 @@ class TestIntegration:
     @pytest.mark.slow
     def test_full_validation(self):
         """Full validation with higher resolution."""
+        """
         result = run_proof(
             n_grid=2000,
             precision=30,

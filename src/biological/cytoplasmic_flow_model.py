@@ -34,6 +34,7 @@ Author: José Manuel Mota Burruezo Ψ ✧ ∞³
 Date: 2026-01-31
 """
 
+"""
 import numpy as np
 from typing import Callable, Optional, Tuple, Dict, Any
 from dataclasses import dataclass
@@ -548,6 +549,7 @@ def is_cytoplasmic_regime(reynolds: float, threshold: float = 1e-3) -> bool:
 if __name__ == '__main__':
     """Demonstration of cytoplasmic flow model."""
     
+    """
     print("=" * 70)
     print("CYTOPLASMIC FLOW MODEL - DEMONSTRATION")
     print("Navier-Stokes in Biological Regime")

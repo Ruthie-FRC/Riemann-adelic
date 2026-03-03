@@ -494,6 +494,8 @@ class SeeleyDeWittTensor:
         trace = trapezoid(kernel_diag, x)
         
         return trace
+class AdelicNavierStokesOperator:
+    """
     Adelic Laplacian operator Δ_A = Δ_R + Σ_p Δ_{Q_p}.
     
     Combines Archimedean (real) and p-adic Laplacians with position-dependent

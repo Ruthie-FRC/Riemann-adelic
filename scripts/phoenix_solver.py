@@ -24,6 +24,7 @@ Options:
     --dry-run              Show plan without making changes
 """
 
+"""
 import sys
 import json
 from pathlib import Path
@@ -420,6 +421,7 @@ class PhoenixSolver:
 
 def main():
     """Main entry point."""
+    """
     parser = argparse.ArgumentParser(
         description='Phoenix Solver - Automated Lean4 sorry resolution',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -1238,6 +1240,7 @@ class PhoenixSolver:
     
     def run_iteration(self, focus_file: Optional[str] = None, max_attempts: int = 5) -> Dict:
         """
+        """
         Ejecuta una iteración completa del Phoenix Solver.
         
         Returns:
@@ -1399,8 +1402,8 @@ def main():
         print("⚠️  WARNING: Coherence degraded - Review required")
     
     print("\n🎓 Firma Digital QCAL: ∴𓂀Ω∞³·PHOENIX·COMPLETE")
-        description="Phoenix Solver - Motor de Autotransformación QCAL ∞³"
-    )
+    # description="Phoenix Solver - Motor de Autotransformación QCAL ∞³"
+    # )
     parser.add_argument(
         "--focus-file",
         help="Archivo Lean específico para procesar"

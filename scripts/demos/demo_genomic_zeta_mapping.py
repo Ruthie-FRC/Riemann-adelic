@@ -78,6 +78,7 @@ def demo_sequence_analysis():
 
 def demo_wave_functions():
     """Demonstrate wave function computation and visualization."""
+    """
     print("\n" + "="*80)
     print(" DEMONSTRATION 3: Wave Function Construction")
     print("="*80 + "\n")
@@ -154,6 +155,7 @@ from utils.genomic_zeta_mapping import (
 )
 
 
+    """
 def demo_basic_fragmentation():
     """Demo 1: Basic codon fragmentation."""
     print("="*70)
@@ -698,6 +700,8 @@ def demo_export():
     print("\n" + "="*80 + "\n")
 
 
+    """
+    """
 def main():
     """Run all demos."""
     print("\n" + "="*70)

@@ -73,7 +73,7 @@ class TestOscillatorFR:
         assert abs(t[-1] - duration) < 0.001  # Within 1ms
     
     def test_frequency_accuracy(self):
-        """Test that generated frequency matches f₀."""
+#         """Test that generated frequency matches f₀."""
         osc = OscillatorFR(precision=50)
         duration = 1.0
         sample_rate = 44100
@@ -134,7 +134,7 @@ class TestModulatorBPSK_RH:
         assert mod.oscillator == osc
     
     def test_encode_decode_identity(self):
-        """Test that decode(encode(data)) ≈ data.
+        """Test that decode(encode(data)) approximates data.
         
         Note: Perfect reconstruction requires longer bit durations
         to avoid edge effects in simple correlation decoder.
@@ -170,7 +170,7 @@ class TestModulatorBPSK_RH:
         assert len(encoded) == int(expected_length)
     
     def test_phase_discrimination(self):
-        """Test that phases 0° and 180° are distinguishable."""
+#         """Test that phases 0° and 180° are distinguishable."""
         osc = OscillatorFR(precision=25)
         mod = ModulatorBPSK_RH(osc)
         
@@ -617,7 +617,6 @@ class TestPerformance:
         assert elapsed < 2.0
 
 
-if __name__ == "__main__":
 from pathlib import Path
 import sys
 

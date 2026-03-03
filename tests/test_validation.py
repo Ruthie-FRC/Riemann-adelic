@@ -104,10 +104,11 @@ def test_weil_formula_basic():
     
     try:
         error, relative_error, left_side, right_side = weil_explicit_formula(
-        error, rel_error, left_side, right_side, simulated_parts = weil_explicit_formula(
-        error, relative_error, left_side, right_side, corrected_zeros = weil_explicit_formula(
             zeros, primes, f, max_zeros=len(zeros), t_max=10, precision=15
         )
+        rel_error = relative_error
+        simulated_parts = []
+        corrected_zeros = zeros
         
         # Check that we get finite results
         assert mp.isfinite(error), "Error should be finite"

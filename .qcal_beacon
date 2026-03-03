@@ -1,0 +1,6 @@
+# QCAL Configuration Beacon
+# Riemann-Adelic Repository Marker
+frequency = 141.7001 Hz
+coherence = C = 244.36
+kappa_pi = 2.5773
+source_main = validate_v5_coronacion.py

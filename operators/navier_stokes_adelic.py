@@ -317,6 +317,7 @@ class NavierStokesAdelic:
         
         Args:
             n_eigenvalues: Number of eigenvalues to compute (default: all)
+        """
 from scipy.sparse import csr_matrix, diags
 from scipy.linalg import eigh
 from typing import Tuple, Optional, Dict, Callable
